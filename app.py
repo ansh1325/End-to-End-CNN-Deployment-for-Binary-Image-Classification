@@ -47,11 +47,18 @@ if uploaded_file is not None:
         pred_value = prediction[0][0]
 
         # Classification mapping (0 = Female, 1 = Male based on alphabetical directory flow)
+        # if pred_value >= 0.5:
+        #     label = "Male"
+        #     confidence = pred_value * 100
+        # else:
+        #     label = "Female"
+        #     confidence = (1.0 - pred_value) * 100
+        # Swap the labels based on your model's actual output structure
         if pred_value >= 0.5:
-            label = "Male"
+            label = "Female"  
             confidence = pred_value * 100
         else:
-            label = "Female"
+            label = "Male"    
             confidence = (1.0 - pred_value) * 100
 
     # Output results
